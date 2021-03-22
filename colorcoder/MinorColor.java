@@ -1,6 +1,6 @@
 package colorcoder;
 
-enum MinorColor implements Color {
+enum MinorColor {
 	BLUE(0,"Blue"),
     ORANGE(1,"Orange"),
     GREEN(2,"Green"),
@@ -15,14 +15,21 @@ enum MinorColor implements Color {
         this.color = color;
     }
 
-	@Override
 	public int getIndex() {
 		return index;
 	}
 
-	@Override
 	public String getColor() {
 		return color;
 	}
+	
+	public static MinorColor fromIndex(int index, MinorColor[] values) {
+        for(MinorColor color: values) {
+            if(color.getIndex() == index) {
+                return color;
+            }
+        }
+        return null;
+    }
     
 }

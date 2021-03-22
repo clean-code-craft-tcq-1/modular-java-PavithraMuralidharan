@@ -1,6 +1,6 @@
 package colorcoder;
 
-enum MajorColor implements Color {
+enum MajorColor {
 	WHITE(0,"White"), 
 	RED(1,"Red"), 
 	BLACK(2,"Black"), 
@@ -15,13 +15,20 @@ enum MajorColor implements Color {
         this.color = color;
     }
 
-	@Override
 	public int getIndex() {
 		return index;
 	}
 
-	@Override
 	public String getColor() {
 		return color;
 	}
+	
+	 public static MajorColor fromIndex(int index, MajorColor[] values) {
+	        for(MajorColor color: values) {
+	            if(color.getIndex() == index) {
+	                return color;
+	            }
+	        }
+	        return null;
+	    }
 }
